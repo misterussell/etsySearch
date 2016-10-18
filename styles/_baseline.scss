@@ -66,3 +66,12 @@ img {
 a {
   text-decoration: none;
 }
+
+.searchBar {
+  input {
+    display: inline-block;
+  }
+  button {
+    display: inline-block;
+  }
+}

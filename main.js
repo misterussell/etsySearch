@@ -1,13 +1,9 @@
 function searchBar() {
   var $searchBar = $('.searchBar');
 
-  var createSearch = $('<form class="search" action="index.html" method="post"><input type="text" name="name" class="userSearch" value=""></form><button class="submit">Search</button>');
-
+  var createSearch = $('<form class="search" action="index.html" method="post"><input type="text" name="name" class="userSearch" value=""/></form><button class="submit">Search</button>');
   $searchBar.append(createSearch);
 }
-
-//LOAD INITIAL SEARCH
-searchBar();
 
 function settings(searchTerm) {
   var settings = {
@@ -38,18 +34,25 @@ function loadResults(item, i, arr) {
 
   // $textLimit.text($textLimit.text().substring(0, 30));
 }
-// var searchBox = $('.userSearch');
+
+//LOAD INITIAL SEARCH BAR
+searchBar();
+//Define submit button
 var submit = $('.submit');
 
 submit.on('click', function(e){
-  var newSearch = document.querySelector('.userSearch').value;
+  console.log('hello');
+  var searchTerm = document.querySelector('.userSearch').value;
   // console.log(newSearch);
-  searchTerm = newSearch;
   if (!searchTerm) {
     alert('The limit does not exist! Please search something valid.');
+  } else if (searchTerm) {
+    $.ajax(settings(searchTerm));
+    console.log(searchTerm);
   } else {
-  $.ajax(settings(searchTerm));
+    console.log('no bones');
   }
+
 });
 
 // $.ajax(settings(searchTerm));
