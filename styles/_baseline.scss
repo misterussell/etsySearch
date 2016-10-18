@@ -1,0 +1,68 @@
+body {
+  width: 100%;
+  font-size: 62.5%;
+  background: #F5F5F1;
+  box-sizing: border-box;
+}
+
+main {
+  @include outer-container;
+  width: 85%;
+}
+
+.searchResults {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: .5rem;
+  aside {
+    background: white;
+    @include clearfix;
+    padding: .25rem;
+  }
+  a {
+    @include span-columns(4);
+    @include omega(3n);
+    @include clearfix;
+  }
+  li {
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    border: .01rem solid rgba(#d1d1d1, 0.5);
+    // border-radius: 20px; // border rules are not applying downstream
+  }
+  h2 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    // display: inline-block;
+    clear: both;
+    padding-top: .25rem;
+    margin: 0;
+  }
+  .seller {
+    color: #aaaaaa;
+    display: inline-block;
+  }
+  .price {
+    color: #2fc82c;
+    float: right;
+    display: inline-block;
+    &::before {
+      content: "$";
+    }
+
+  }
+  img {
+    float: left
+  }
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
